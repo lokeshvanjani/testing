@@ -25,6 +25,10 @@ jobs:
       - name: Checkout Code
         uses: actions/checkout@v4
 
+      - name: Configure AWS Credentials
+        uses: aws-actions/configure-aws-credentials@v3
+        with:
+          role-to-assume: arn:aws:iam::312730830156:role/Github-OIDC
       # Runs a set of commands using the runners shell
       - name: Verify AWS Credentials
         run: aws s3 ls
